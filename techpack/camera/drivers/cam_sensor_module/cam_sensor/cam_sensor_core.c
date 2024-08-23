@@ -825,9 +825,9 @@ int cam_sensor_match_id(struct cam_sensor_ctrl_t *s_ctrl)
 		read_n19_s5k4h7yx_module_id(s_ctrl, &module_id);
 		CAM_INFO(CAM_SENSOR, "module_id : 0x%x",module_id);
 		if((slave_info->sensor_id == 0x487B) && (module_id == 0x10))
-			CAM_ERR(CAM_SENSOR, "s5k4h7 helitai");
+			CAM_INFO(CAM_SENSOR, "s5k4h7 helitai");
 		else if(((slave_info->sensor_id == 0x487C) && (module_id == 0x13)))
-			CAM_ERR(CAM_SENSOR, "s5k4h7 dongci");
+			CAM_INFO(CAM_SENSOR, "s5k4h7 dongci");
 		else
 			return -ENODEV;
 	//+bug535065,qinduilin.wt,ADD,2021/01/18,add union image gc5035 bring up
@@ -1502,7 +1502,7 @@ int32_t cam_sensor_driver_cmd(struct cam_sensor_ctrl_t *s_ctrl,
 			//+bug535065, zhoumin.wt, ADD, 20200611, add for gc5035 can not switch to video preview when use 720P setting.
 			if((s_ctrl->sensordata->slave_info.sensor_id == 0x5035) || (s_ctrl->sensordata->slave_info.sensor_id == 0x5036) || (s_ctrl->sensordata->slave_info.sensor_id == 0x5037))
 			{
-				CAM_INFO(CAM_EEPROM, "gc5035_DDdata_total_number is %d\n", gc5035_dd_total_number);
+				CAM_INFO(CAM_EEPROM, "gc5035_DDdata_total_number is %d", gc5035_dd_total_number);
 				write_n19_gc5035_dd_params(s_ctrl, gc5035_dd_total_number);
 				//bug535065, zhoumin.wt, ADD, 20200706, add for gc5035 update register value.
 				n19_gc5035_write_update_register_value(s_ctrl, gc5035_update_register_value);

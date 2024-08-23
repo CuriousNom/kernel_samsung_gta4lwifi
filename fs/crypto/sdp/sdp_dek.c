@@ -1460,7 +1460,7 @@ int fscrypt_sdp_update_sdp_info(struct inode *inode,
 	return __fscrypt_get_sdp_context(inode, crypt_info);
 }
 
-int fscrypt_sdp_is_classified(struct fscrypt_info *crypt_info)
+int fscrypt_sdp_is_classified(const struct fscrypt_info *crypt_info)
 {
 	if (!crypt_info->ci_sdp_info)
 		return 0;
